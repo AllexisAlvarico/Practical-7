@@ -50,21 +50,72 @@ void Game::initialize()
 	// Initalizes and Compiled to GPU
 	// https://www.opengl.org/sdk/docs/man2/xhtml/glNewList.xml
 	glNewList(index, GL_COMPILE);
-	glBegin(GL_QUADS);
+	glBegin(GL_TRIANGLES);
 	{
 		//Front Face
-		glColor3f(0.0f, 0.0f, 1.0f);
-		glVertex3f(v3.getX(), 1.0f, -5.0f);
-		glVertex3f(-1.0f, 1.0f, -5.0f);
-		glVertex3f(-1.0f, -1.0f, -5.0f);
-		glVertex3f(1.0f, -1.0f, -5.0f);
+		glColor3f(0.0f, 0.0f, 1.0f); 
+		glVertex3f(v3.getX(), 1.0f, -5.0f); //2
+		glVertex3f(-1.0f, 1.0f, -5.0f); //1
+		glVertex3f(-1.0f, -1.0f, -5.0f); // 3 
+
+		glVertex3f(v3.getX(), 1.0f, -5.0f); //2
+		glVertex3f(1.0f, -1.0f, -5.0f); // 4
+		glVertex3f(-1.0f, -1.0f, -5.0f); // 3 
+
+
+		// Top face
+		glColor3f(1.0f, 0.0f, 1.0f);
+		glVertex3f(-1.0f, 1.0f, -5.0f); //1
+		glVertex3f(v3.getX(), 1.0f, -5.0f); //2
+		glVertex3f(-1.0f, -1.0f, -15.0f); // 7
+
+		glVertex3f(-1.0f, 1.0f, -5.0f); //1
+		glVertex3f(-1.0f, 1.0f, -15.0f); // 5
+		glVertex3f(-1.0f, -1.0f, -15.0f); // 7
+
 
 		//Back Face
 		glColor3f(0.0f, 1.0f, 0.0f);
-		glVertex3f(1.0f, 1.0f, -15.0f);
-		glVertex3f(-1.0f, 1.0f, -15.0f);
-		glVertex3f(-1.0f, -1.0f, -15.0f);
-		glVertex3f(1.0f, -1.0f, -15.0f);
+		glVertex3f(1.0f, 1.0f, -15.0f); // 6
+		glVertex3f(-1.0f, 1.0f, -15.0f); // 5
+		glVertex3f(-1.0f, -1.0f, -15.0f); // 7
+
+		glVertex3f(1.0f, 1.0f, -15.0f); // 6
+		glVertex3f(1.0f, -1.0f, -15.0f); // 8
+		glVertex3f(-1.0f, -1.0f, -15.0f); // 7
+
+		//bottom face
+		glColor3f(1.0f, 1.0f, 0.0f);
+		glVertex3f(-1.0f, -1.0f, -15.0f); // 7
+		glVertex3f(1.0f, -1.0f, -15.0f); // 8
+		glVertex3f(1.0f, -1.0f, -5.0f); // 4
+
+		glVertex3f(-1.0f, -1.0f, -15.0f); // 7
+		glVertex3f(-1.0f, -1.0f, -5.0f); // 3 
+		glVertex3f(1.0f, -1.0f, -5.0f); // 4
+
+
+		//left face
+		glColor3f(0.0f, 1.0f, 1.0f);
+		glVertex3f(-1.0f, 1.0f, -5.0f); //1
+		glVertex3f(-1.0f, 1.0f, -15.0f); // 5
+		glVertex3f(-1.0f, -1.0f, -15.0f); // 7
+
+		glVertex3f(-1.0f, 1.0f, -5.0f); //1
+		glVertex3f(-1.0f, -1.0f, -5.0f); // 3 
+		glVertex3f(-1.0f, -1.0f, -15.0f); // 7
+
+		// right face
+		glColor3f(1.0f, 1.0f, 1.0f);
+		glVertex3f(v3.getX(), 1.0f, -5.0f); //2
+		glVertex3f(1.0f, 1.0f, -15.0f); // 6
+		glVertex3f(1.0f, -1.0f, -15.0f); // 8
+
+		glVertex3f(v3.getX(), 1.0f, -5.0f); //2
+		glVertex3f(1.0f, -1.0f, -5.0f); // 4
+		glVertex3f(1.0f, -1.0f, -15.0f); // 8
+
+
 
 		//Complete the faces of the Cube
 	}
