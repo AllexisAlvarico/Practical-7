@@ -3,13 +3,11 @@
 #include <SFML/OpenGL.hpp>
 #include <gl/GL.h>
 #include <gl/GLU.h>
+#include "Vector3f.h"
+#include "Matrix3f.h"
 
-#include <Vector3.h>
+#define PI 3.141592653589793238
 
-
-using namespace std;
-using namespace sf;
-using namespace gpp;
 
 class Game
 {
@@ -18,7 +16,7 @@ public:
 	~Game();
 	void run();
 private:
-	Window window;
+	sf::Window window;
 	bool isRunning = false;
 	void initialize();
 	void update();
@@ -26,8 +24,10 @@ private:
 	void unload();
 
 	GLuint index;
-	Clock clock;
-	Time elapsed;
+	sf::Clock clock;
+	sf::Time elapsed;
 
+	Vector3f m_points[8];
+	float m_angle{ 0 };
 	float rotationAngle = 0.0f;
 };
